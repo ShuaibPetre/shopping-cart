@@ -1,0 +1,96 @@
+#root {
+  height: 100vh;
+}
+:root {
+  font-size: 14px;
+}
+html {
+  margin: 0;
+}
+body {
+  margin: 0;
+}
+.main,
+.shop {
+  width: 100%;
+  height: -o-calc(100vh - 60px); /* opera */
+  height: -webkit-calc(100vh - 60px); /* google, safari */
+  height: -moz-calc(100vh - 60px); /* firefox */
+  top: 60px;
+  position: relative;
+  background: url("./assets/bg1.png");
+  background-size: cover;
+}
+.container {
+  display: flex;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  position: fixed;
+  height: 60px;
+  width: 100vw;
+  background: grey;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1vw;
+  z-index: 1;
+}
+.links {
+  display: flex;
+  gap: 2vw;
+  gap: 2vw;
+}
+.link {
+  color: black;
+  appearance: none;
+}
+h2 {
+  margin: 0;
+}
+.cart {
+  background: transparent;
+  border: none;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 23vw);
+  grid-template-rows: repeat(auto);
+  gap: 5vw;
+  background: rgba(228, 225, 225, 1);
+  padding: 5vw;
+}
+.image {
+  width: 130px;
+  height: auto;
+  justify-self: center;
+  align-self: center;
+}
+.product {
+  background: white;
+  display: grid;
+  grid-template-rows: auto 4rem 1.5rem 1.5rem 30px;
+  justify-content: center;
+
+  padding: 2vw;
+  gap: 2vh;
+  text-align: center;
+}
+.ptitle {
+  line-height: 2;
+  width: 160px;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.price {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
