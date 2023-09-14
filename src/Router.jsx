@@ -5,6 +5,7 @@ import ShoppingPage from "./components/shopPage/ShoppingPage";
 import ErrorPage from "./errorPage";
 import "./Router.css";
 import "./index.css";
+import ShoppingCart from "./components/shoppingCart/ShoppingCart";
 export const ShopContext = createContext({
   products: [],
   cartItems: [],
@@ -65,6 +66,10 @@ const Router = () => {
     {
       path: "/products",
       element: <ShoppingPage />,
+    },
+    {
+      path: "/cart",
+      element: <ShoppingCart />,
     },
   ]);
 

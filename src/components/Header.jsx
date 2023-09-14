@@ -27,10 +27,10 @@ export default function Header() {
         <Link to="/products" className="link">
           Products
         </Link>
-        <button className="cart" onClick={() => console.log(cartItems)}>
-          <FaShoppingCart />
-        </button>
-        <div className="cartnumber">{number}</div>
+        <Link to="/cart" className="link">
+          <FaShoppingCart className="carticon" />
+          <div className="cartnum">{number}</div>
+        </Link>
       </div>
     </div>
   );

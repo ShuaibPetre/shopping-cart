@@ -11,7 +11,8 @@ body {
   margin: 0;
 }
 .main,
-.shop {
+.shop,
+.main-cart {
   width: 100%;
   height: -o-calc(100vh - 60px); /* opera */
   height: -webkit-calc(100vh - 60px); /* google, safari */
@@ -47,15 +48,27 @@ body {
 .link {
   color: black;
   appearance: none;
+  display: flex;
 }
 h2 {
   margin: 0;
 }
-.cart {
-  background: transparent;
-  border: none;
+.cartnum {
+  font-size: 1rem;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background-color: #418deb;
+  border-radius: 50%;
+  text-align: center;
+  top: -8px;
+  left: -2px;
 }
-
+.cartimg {
+  width: 20px;
+  height: 20px;
+}
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, 23vw);
@@ -65,7 +78,7 @@ h2 {
   padding: 5vw;
 }
 .image {
-  width: 130px;
+  width: 100px;
   height: auto;
   justify-self: center;
   align-self: center;
@@ -93,4 +106,80 @@ h2 {
 .price {
   font-size: 1.5rem;
   font-weight: 600;
+}
+.cartitem {
+  display: flex;
+}
+.carticon {
+  width: 20px;
+  height: 20px;
+}
+.cart-image {
+  width: auto;
+  height: 30px;
+}
+.cartitems {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+.cartitem {
+  background: white;
+  display: flex;
+}
+.cartdiv {
+  display: flex;
+  flex-direction: column;
+}
+.extrainfo {
+  display: flex;
+}
+.main-cart {
+  background: rgba(228, 225, 225, 1);
+}
+.cartsection {
+  display: flex;
+  justify-content: space-around;
+}
+.sidebar {
+  display: flex;
+  font-size: 16px;
+  padding: 2vw;
+  gap: 2vw;
+  background: rgba(228, 225, 225, 1);
+}
+select,
+.select {
+  background: transparent;
+  border: none;
+  width: max-content;
+  font-size: 16px;
+  appearance: none;
+  text-decoration: underline;
+}
+select:active,
+select:focus,
+select:hover,
+select {
+  appearance: none;
+  border: none;
+}
+.loadinggif {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #3d5af1 transparent #3d5af1 transparent;
+  border-radius: 50%;
+  animation: spin-anim 1.2s linear infinite;
+
+  justify-self: center;
+}
+
+@keyframes spin-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

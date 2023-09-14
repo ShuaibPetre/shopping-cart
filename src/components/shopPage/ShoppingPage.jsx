@@ -1,4 +1,6 @@
 import { useContext, useEffect, useState } from "react";
+import { FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { ShopContext } from "../../Router";
 import Header from "../Header";
 import List from "./List";
@@ -7,22 +9,26 @@ export default function ShoppingPage() {
   const { products } = useContext(ShopContext);
   const [show, setShow] = useState(null);
   const uniqueTags = [];
+  const [value, setValue] = useState(null);
+
   if (products !== null)
-    products.map((img) => {
-      if (uniqueTags.indexOf(img.category) === -1) {
-        uniqueTags.push(img.category);
+    products.map((item) => {
+      if (uniqueTags.indexOf(item.category) === -1) {
+        uniqueTags.push(item.category);
       }
     });
+
   useEffect(() => {
     if (products !== null) setShow(products);
     return () => {};
   }, [products]);
 
   const handleSection = (e) => {
-    console.log(e.target.innerHTML);
+    console.log(e.target.value);
     const newList = [];
+    if (e.target.value === "all") return setShow(products);
     products
-      .filter((product) => product.category === e.target.innerHTML)
+      .filter((product) => product.category === e.target.value)
       .map((filteredList) => newList.push(filteredList));
     setShow(newList);
   };
@@ -31,17 +37,39 @@ export default function ShoppingPage() {
       <Header />
       <div className="shop">
         <div className="sidebar">
-          <div className="h3">Catergories</div>
-          <button onClick={() => console.log({ show })}>click me</button>
-          {uniqueTags.map((tag) => (
-            <button key={tag} onClick={handleSection}>
-              {tag}
-            </button>
-          ))}
+          <div>
+            {" "}
+            <Link to="/" className="link">
+              Home
+            </Link>{" "}
+          </div>
+          <div>
+            {" "}
+            <FaAngleRight />{" "}
+          </div>
+          <div> Product </div>
+          <div>
+            {" "}
+            <FaAngleRight />{" "}
+          </div>
+          <div>
+            <label>
+              <select className="select" value={value} onChange={handleSection}>
+                <option className="select" key={"all"} value={"all"}>
+                  All
+                </option>
+                {uniqueTags.map((option) => (
+                  <option className="select" key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
         </div>
         <div className="cards">
           {!show ? (
-            <div>waiting</div>
+            <div className="loadinggif"></div>
           ) : (
             show.map((product) => <List key={product.id} product={product} />)
           )}
