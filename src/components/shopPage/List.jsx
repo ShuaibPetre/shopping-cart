@@ -18,7 +18,9 @@ export default function List(product) {
         <Rating name="read-only" value={product.product.rating.rate} readOnly />{" "}
         {product.product.rating.rate}({product.product.rating.count})
       </div>
-      <button onClick={() => addToCart(product.product)}>ADD TO CART</button>
+      <button className="addtocart" onClick={() => addToCart(product.product)}>
+        ADD TO CART
+      </button>
     </div>
   );
 }

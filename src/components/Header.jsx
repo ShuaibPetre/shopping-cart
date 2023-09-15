@@ -11,7 +11,6 @@ export default function Header() {
     if (cartItems !== null) {
       newnumber.current = 0;
       cartItems.map((product) => {
-        console.log(product);
         newnumber.current += product.quantity;
       });
       setNumber(newnumber.current);

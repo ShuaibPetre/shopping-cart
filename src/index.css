@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "myfont";
+  src: url("./assets/font1.ttf");
+}
+@font-face {
+  font-family: "myfont2";
+  src: url("./assets/font2.ttf");
+}
 #root {
   height: 100vh;
+  font-family: "myfont";
 }
 :root {
   font-size: 14px;
@@ -35,23 +44,27 @@ body {
   height: 60px;
   width: 100vw;
   background: grey;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  gap: 1vw;
   z-index: 1;
 }
 .links {
   display: flex;
-  gap: 2vw;
-  gap: 2vw;
+  gap: 4vw;
+  padding-right: 8vw;
 }
 .link {
-  color: black;
+  color: white;
   appearance: none;
   display: flex;
+  font-size: 20px;
+  text-decoration: none;
 }
-h2 {
+.header > h2 {
+  padding-left: 4vw;
   margin: 0;
+  color: white;
+  font-size: 24px;
 }
 .cartnum {
   font-size: 1rem;
@@ -62,7 +75,7 @@ h2 {
   background-color: #418deb;
   border-radius: 50%;
   text-align: center;
-  top: -8px;
+  top: -11px;
   left: -2px;
 }
 .cartimg {
@@ -77,6 +90,7 @@ h2 {
   background: rgba(228, 225, 225, 1);
   padding: 5vw;
 }
+
 .image {
   width: 100px;
   height: auto;
@@ -93,7 +107,8 @@ h2 {
   gap: 2vh;
   text-align: center;
 }
-.ptitle {
+.ptitle,
+.ctitle {
   line-height: 2;
   width: 160px;
   white-space: wrap;
@@ -102,6 +117,12 @@ h2 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+div.ctitle {
+  width: 90%;
+  padding: 0.5vw;
+  font-size: 16px;
+  font-weight: 600;
 }
 .price {
   font-size: 1.5rem;
@@ -115,29 +136,47 @@ h2 {
   height: 20px;
 }
 .cart-image {
-  width: auto;
-  height: 30px;
+  width: 80px;
+  height: auto;
+  padding: 10px;
+  padding-left: 4vw;
 }
 .cartitems {
   display: flex;
   flex-direction: column;
   gap: 1vh;
+  align-items: baseline;
 }
 .cartitem {
   background: white;
   display: flex;
+  width: 45vw;
+  height: 110px;
+  border-radius: 5%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2vw;
+  gap: 4vw;
 }
+
 .cartdiv {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
 .extrainfo {
   display: flex;
+  padding: 1vw;
+  gap: 2vw;
+  justify-content: space-between;
+  width: 90%;
+  padding-bottom: 0%;
 }
 .main-cart {
   background: rgba(228, 225, 225, 1);
 }
 .cartsection {
+  background: rgba(228, 225, 225, 1);
   display: flex;
   justify-content: space-around;
 }
@@ -147,7 +186,16 @@ h2 {
   padding: 2vw;
   gap: 2vw;
   background: rgba(228, 225, 225, 1);
+  color: black;
+  font-size: 18px;
 }
+.homelink,
+.sidebar,
+.select {
+  color: black;
+  text-decoration: none;
+}
+
 select,
 .select {
   background: transparent;
@@ -163,6 +211,12 @@ select:hover,
 select {
   appearance: none;
   border: none;
+}
+.select {
+  transition: transform 0.1s;
+}
+.select:hover {
+  transform: scale(1.1);
 }
 .loadinggif {
   width: 64px;
@@ -182,4 +236,136 @@ select {
   100% {
     transform: rotate(360deg);
   }
+}
+.plusbtn,
+.minusbtn {
+  background: transparent;
+  border: none;
+  font-size: larger;
+}
+.plusbtn {
+  color: green;
+}
+.minusbtn {
+  color: red;
+}
+.quantity {
+  font-size: 20px;
+  padding: none;
+  margin: 0;
+}
+.addtocart {
+  justify-self: center;
+  border-radius: 100px;
+  border: none;
+  font-size: 1em;
+  background: #ca680d;
+  cursor: pointer;
+  height: 1.5em;
+  width: 80%;
+  overflow: hidden;
+  transition: transform 0.1s;
+}
+.addtocart:hover {
+  transform: scale(1.1);
+}
+.heading {
+  display: flex;
+  width: 100%;
+  font-size: 20px;
+  justify-content: space-between;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  font-weight: 700;
+}
+/* CSS */
+.removebutton,
+.shopnow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  border-radius: 6px;
+  border: none;
+  width: 100px;
+  color: #fff;
+  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
+  background-origin: border-box;
+  box-shadow:
+    0px 0.5px 1.5px rgba(54, 122, 246, 0.25),
+    inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
+}
+.shopnow {
+  position: relative;
+  left: 65vw;
+  top: 15vh;
+  font-size: 28px;
+  width: 250px;
+  background: linear-gradient(180deg, #af6b33 0%, #f67d36 100%);
+}
+.removebutton:focus {
+  box-shadow:
+    inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2),
+    0px 0.5px 1.5px rgba(54, 122, 246, 0.25),
+    0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+.emptycontainer {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 60vw;
+  height: 40vh;
+  align-items: center;
+  border: none;
+  border-radius: 2%;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 5px 13px 18px;
+  position: relative;
+  left: 15vw;
+  top: 5vh;
+  padding: 5vw;
+}
+.paymentcard {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 5px 13px 18px;
+  background: white;
+  margin-top: 2vw;
+  border: thin grey;
+  border-radius: 3%;
+  padding: 3vw;
+  gap: 5vh;
+}
+.paypalimg {
+  background: url("https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/Full_Online_Tray_RGB.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: fit-content;
+  padding: 5vw;
+}
+.paybtn {
+  background: url("https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/34_Blue_CheckOut_Pill_Button.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 40px;
+  border: none;
+  align-self: center;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 600;
+}
+.t2 {
+  padding-right: 1.5vw;
 }

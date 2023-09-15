@@ -9,7 +9,7 @@ export default function ShoppingPage() {
   const { products } = useContext(ShopContext);
   const [show, setShow] = useState(null);
   const uniqueTags = [];
-  const [value, setValue] = useState(null);
+  const [value] = useState(null);
 
   if (products !== null)
     products.map((item) => {
@@ -39,7 +39,7 @@ export default function ShoppingPage() {
         <div className="sidebar">
           <div>
             {" "}
-            <Link to="/" className="link">
+            <Link to="/" className="homelink">
               Home
             </Link>{" "}
           </div>
