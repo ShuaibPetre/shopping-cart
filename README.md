@@ -1,6 +1,6 @@
 # 🛍️ Shopping Cart App
 
-A simple and interactive shopping cart built with vanilla JavaScript. Users can add items to their cart, adjust quantities, and view dynamic total costs — all in a clean, responsive layout.
+A simple and interactive shopping cart built with React.js. Users can add items to their cart, adjust quantities, and view dynamic total costs — all in a clean, responsive layout. Uses FakeStore API for item data.
 
 ## 🚀 Features
 
@@ -20,4 +20,4 @@ A simple and interactive shopping cart built with vanilla JavaScript. Users can 
 
 - HTML5
 - CSS3
-- JavaScript (ES6+)
+- React.js
